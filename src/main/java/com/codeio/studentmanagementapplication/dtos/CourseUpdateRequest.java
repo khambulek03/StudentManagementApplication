@@ -9,10 +9,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class CourseRequest {
+public class CourseUpdateRequest {
 
-    public String courseName;
-    public String courseCode;
-    public int totalCredits;
-    public Long departmentId;
+    private String courseName;
+
+    private String courseCode;
+
+    private String departmentId;
+
+    private int totalCredits;
 }

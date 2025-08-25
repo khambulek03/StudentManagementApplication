@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import java.sql.Date;
+
 import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "enrollments")
@@ -22,9 +22,9 @@ public class Enrollment {
     private Long enrollmentId;
 
     @NotNull
-    private Date date;
+    private LocalDate date;
     @NotNull
-    private int achieved_credits;
+    private int achievedCredits;
 
     @OneToOne
     @JoinColumn(name = "student_id")

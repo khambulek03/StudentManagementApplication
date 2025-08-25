@@ -30,7 +30,7 @@ public class Course {
     private List<Student> students = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "departmentId")
     private Department department;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
