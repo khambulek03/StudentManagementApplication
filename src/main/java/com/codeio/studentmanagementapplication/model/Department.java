@@ -21,8 +21,12 @@ public class Department {
 
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "facultyId")
+    private Faculty faculty;
+
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
-    private List<Course> courses = new ArrayList();
+    private List<Course> courses = new ArrayList<>();
 
     private LocalDateTime createdAt;
 

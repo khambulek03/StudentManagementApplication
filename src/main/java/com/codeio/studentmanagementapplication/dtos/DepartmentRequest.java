@@ -10,4 +10,6 @@ import lombok.*;
 public class DepartmentRequest {
     @NotBlank
     private String name;
+
+    private Long facultyId;
 }
