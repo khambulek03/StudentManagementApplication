@@ -2,20 +2,27 @@ package com.codeio.studentmanagementapplication.dtos;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class CourseRequest {
 
     @NotBlank
-    private String courseName;
+    public String courseName;
 
     @Column(unique = true)
-    private String courseCode;
+    public String courseCode;
 
     @NotNull
-    private int totalCredits;
+    public int totalCredits;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    private Long department_id;
+    public Long department_id;
 }

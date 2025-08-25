@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,7 +17,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long student_id;
+    private Long studentId;
 
     @NotBlank
     private String firstName;
@@ -39,7 +39,7 @@ public class Student {
     private String phone;
 
     @NotNull
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @NotBlank
     private int age;
@@ -53,9 +53,10 @@ public class Student {
 
     private LocalDateTime createdAt;
 
-
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
 }
+
+
