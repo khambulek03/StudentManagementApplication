@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class Grade {
 
     @EmbeddedId
-    private StudentModuleId grade_id;
+    private StudentModuleId gradeId;
 
     @ManyToOne
     @MapsId("student_id")

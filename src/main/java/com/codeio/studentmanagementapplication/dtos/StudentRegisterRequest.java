@@ -1,9 +1,8 @@
 package com.codeio.studentmanagementapplication.dtos;
 
-import com.codeio.studentmanagementapplication.model.Course;
 import lombok.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
@@ -19,7 +18,7 @@ public class StudentRegisterRequest {
 
     private String phone;
 
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     private int age;
 

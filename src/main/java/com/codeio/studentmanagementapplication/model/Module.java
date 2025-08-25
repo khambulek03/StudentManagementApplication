@@ -16,7 +16,7 @@ public class Module {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long module_id;
+    private Long moduleId;
 
     private String name;
 

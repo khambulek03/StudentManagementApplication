@@ -19,7 +19,7 @@ public class Lecturer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long lecturer_id;
+    private Long lecturerId;
 
     @NotBlank
     private String firstName;

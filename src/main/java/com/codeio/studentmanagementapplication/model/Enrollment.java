@@ -19,7 +19,7 @@ public class Enrollment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long enrollment_id;
+    private Long enrollmentId;
 
     @NotNull
     private Date date;
