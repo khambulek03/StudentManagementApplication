@@ -87,4 +87,12 @@ public class StudentService {
             throw new StudentNotFoundException("student not found");
         this.studentRepository.removeStudentByStudentId(id);
     }
+
+    public void removeStudentByStudentNumber(Long studentNumber) {
+        if(!this.studentRepository.existsByStudentNumber(studentNumber)){
+            throw new StudentNotFoundException("");
+        }
+
+        studentRepository.removeStudentByStudentNumber(studentNumber);
+    }
 }
