@@ -24,16 +24,20 @@ public class Module {
     private String code;
 
     @NotNull
-    private int semester_number;
+    private int semesterNumber;
 
     private int credits;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "departmentId")
+    private Department department;
+
+    @ManyToOne
+    @JoinColumn(name = "courseId")
     private Course course;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "lecturer_id")
+    @JoinColumn(name = "lecturerId")
     private Lecturer lecturer;
 
     private LocalDateTime createdAt;

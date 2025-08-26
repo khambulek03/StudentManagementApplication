@@ -27,5 +27,5 @@ public class LecturerRegisterRequest {
 
     private String gender;
 
-    private Long course_id;
+    private Long moduleId;
 }

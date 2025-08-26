@@ -16,4 +16,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findAllByLastName(String lastName);
 
     void removeStudentByStudentId(Long id);
+
+    boolean existsByStudentNumber(Long studentNumber);
+
+    void removeStudentByStudentNumber(Long studentNumber);
 }
