@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Department {
 
     @Id
@@ -33,5 +32,10 @@ public class Department {
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
+    }
+
+    public Department(String name, Faculty faculty) {
+        this.name = name;
+        this.faculty = faculty;
     }
 }

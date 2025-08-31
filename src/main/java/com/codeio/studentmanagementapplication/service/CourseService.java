@@ -8,6 +8,8 @@ import com.codeio.studentmanagementapplication.model.Course;
 import com.codeio.studentmanagementapplication.model.Department;
 import com.codeio.studentmanagementapplication.repository.CourseRepository;
 import com.codeio.studentmanagementapplication.repository.DepartmentRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -17,6 +19,8 @@ import java.util.List;
 
 @Service
 public class CourseService {
+
+    private static final Logger logger = LoggerFactory.getLogger(CourseService.class);
 
     private final CourseRepository courseRepository;
     private final DepartmentRepository departmentRepository;
@@ -39,7 +43,7 @@ public class CourseService {
 
     public void removeCourse(Long courseId) {
         if (this.courseRepository.existsByCourseId(courseId))
-            throw new CourseNotFoundException("");
+            throw new CourseNotFoundException("Course not found");
 
         this.courseRepository.removeByCourseId(courseId);
     }
@@ -57,6 +61,15 @@ public class CourseService {
     public Course getCourseByCode(String courseCode) {
         return this.courseRepository.findCourseByCourseCode(courseCode)
                 .orElseThrow(() -> new CourseNotFoundException(""));
+    }
+
+    public Course getCourseById(Long id) {
+        logger.info("Fetching a course with an id of {}", id);
+        return courseRepository.findCourseByCourseId(id)
+                .orElseThrow(() -> {
+                    logger.warn("Course with id {} was not found", id);
+                    return new CourseNotFoundException("");
+                });
     }
 
     public Course updateCourse(String courseCode, CourseUpdateRequest updateRequest) {

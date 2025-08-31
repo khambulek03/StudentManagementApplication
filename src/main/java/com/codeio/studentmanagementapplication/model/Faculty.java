@@ -12,7 +12,6 @@ import java.util.List;
 @Entity
 @Table(name = "faculties")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Faculty {
@@ -25,4 +24,9 @@ public class Faculty {
 
     @OneToMany(mappedBy = "faculty", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Department> departments = new ArrayList<>();
+
+    public Faculty(Long facultyId, String facultyName) {
+        this.facultyId = facultyId;
+        this.facultyName = facultyName;
+    }
 }
