@@ -36,8 +36,13 @@ public class FacultyService {
         return facultyRepository.findAll(pageable).getContent();
     }
 
-    Faculty getFacultyByName(String name) {
+    public Faculty getFacultyByName(String name) {
         return facultyRepository.findFacultyByFacultyName(name)
+                .orElseThrow(() -> new FacultyNotFoundException(""));
+    }
+
+    public Faculty getFacultyById(Long facultyId) {
+        return facultyRepository.findFacultyByFacultyId(facultyId)
                 .orElseThrow(() -> new FacultyNotFoundException(""));
     }
 }

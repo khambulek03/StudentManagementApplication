@@ -1,6 +1,7 @@
 package com.codeio.studentmanagementapplication.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -12,18 +13,20 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long courseId;
 
+    @NotBlank
     private String courseName;
 
+    @NotBlank
     @Column(unique = true)
     private String courseCode;
 
+    @NotNull
     private int totalCredits;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -44,5 +47,13 @@ public class Course {
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
+    }
+
+    public Course(Long courseId, String courseName, String courseCode, int totalCredits, Department department) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.totalCredits = totalCredits;
+        this.department = department;
     }
 }

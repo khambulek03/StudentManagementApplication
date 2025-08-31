@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "students")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Student {
@@ -57,6 +56,19 @@ public class Student {
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
+
+//    public Student(Long studentId, String firstName, String lastName, String email, Long studentNumber, String phone, LocalDate dateOfBirth, int age, String gender, Course course) {
+//        this.studentId = studentId;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//        this.studentNumber = studentNumber;
+//        this.phone = phone;
+//        this.dateOfBirth = dateOfBirth;
+//        this.age = age;
+//        this.gender = gender;
+//        this.course = course;
+//    }
 }
 
 

@@ -1,6 +1,5 @@
 package com.codeio.studentmanagementapplication.model;
 
-import com.codeio.studentmanagementapplication.model.compositekeys.StudentModuleId;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -15,17 +14,16 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Grade {
 
-    @EmbeddedId
-    private StudentModuleId gradeId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long gradeId;
 
     @ManyToOne
-    @MapsId("student_id")
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "studentId")
     private Student student;
 
     @ManyToOne
-    @MapsId("module_id")
-    @JoinColumn(name = "module_id")
+    @JoinColumn(name = "moduleId")
     private Module module;
 
     @NotNull
